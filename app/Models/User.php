@@ -23,12 +23,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    /*  protected $fillable = [
         'name',
         'email',
         'password',
     ];
-
+*/
+    //protected $fillable = ['name'];
+    protected $guarded =[]; //SE PODRÁ INSERTAR CUALQUIER DATO SIN NECESIDAD DE UN TOKEN
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -61,5 +63,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function tickets (){
+        return $this->hasMany(Ticket::class);//UNO A MUCHOS
+    }
+    public function branch (){
+        return $this->belongsTo(Branch::class);//UNO A MUCHOS INVERSA
     }
 }
