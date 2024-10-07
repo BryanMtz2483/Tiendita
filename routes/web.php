@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,3 +16,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/data', function(){
+    $products = Product::with('supplier','category')->get();
+    return $products;
+    //return $products [0]->supplier->name;
+});
+
+
