@@ -16,6 +16,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/suppliers', function () {
+        return view('suppliers');
+    })->name('suppliers');
+    Route::get('/branches', function () {
+        return view('branches');
+    })->name('branches');
    // Route::get('/dashboard', CreateCategory::class)->name('dashboard');
 });
 

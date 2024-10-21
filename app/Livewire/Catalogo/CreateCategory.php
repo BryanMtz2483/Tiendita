@@ -7,18 +7,20 @@ use Livewire\Component;
 
 class CreateCategory extends Component
 {
-    public $cat;
+    public $categories;
     public $name;
     public $description;
-    public $title;
-    public function mount (Category $cat){
-        $this -> name = $cat->name;
-        $this -> description = $cat->description;
-        //dd($cat); //SIRVE PARA DEBUGEAR LA INFORMACIÓN DE LA VARIABLE PERO NO GUARDA LA INFORMACIÓN, FUNCIONA COMO EL CONSOLE LOG DE JS
+    public function mount (){
+       /* $this -> name = $categories->name;
+        $this -> description = $categories->description;
+        //dd($cat); //SIRVE PARA DEBUGEAR LA INFORMACIÓN DE LA VARIABLE PERO NO GUARDA LA INFORMACIÓN, FUNCIONA COMO EL CONSOLE LOG DE JS*/
+        //$this -> categories = Category::all();
 
     }//EJECUTA ALGUNAS COSAS ANTES DE RENDERIZAR
+    
     public function render()
     {
+        $this -> categories = Category::all();
         return view('livewire.catalogo.create-category');
     }//RENDERIZA LA VISTA COMPLETA PARA PODER REDIBUJAR LOS COMPONENTES DE LA PÁGINA
     public function enviar(){
@@ -29,5 +31,9 @@ class CreateCategory extends Component
         $category->name = $this->name;
         $category->description = $this->description;
         $category->save();
+        $this -> reset(['name', 'description']);
+    }
+    public function delete(Category $category){
+        $category -> delete();
     }
 }
