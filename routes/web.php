@@ -22,6 +22,9 @@ Route::middleware([
     Route::get('/branches', function () {
         return view('branches');
     })->name('branches');
+    Route::get('/categories', function () {
+        return view('categories');
+    })->name('categories');
    // Route::get('/dashboard', CreateCategory::class)->name('dashboard');
 });
 

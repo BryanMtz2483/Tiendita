@@ -10,7 +10,9 @@ class Category extends Model
     use HasFactory;
 
      //protected $fillable = ['name'];
-     protected $guarded =[]; //SE PODRÁ INSERTAR CUALQUIER DATO SIN NECESIDAD DE UN TOKEN
+     protected $fillable =['name','description']; //SE PODRÁ INSERTAR CUALQUIER DATO SIN NECESIDAD DE UN TOKEN
+     //protected $guarded =[]; //SE PODRÁ INSERTAR CUALQUIER DATO SIN NECESIDAD DE UN TOKEN
+    
     
     //RELACION DE UNO A MUCHOS
     public function products(){
