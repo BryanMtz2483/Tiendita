@@ -2,10 +2,10 @@
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <x-button style="height: 40px; margin: 10px;" class="float-end" wire:click="set('cCreate','true')">Create Category</x-button>
             <x-input  style="margin: 10px; width:300px;" class="float-end" type="text" placeholder="Buscar..." wire:model.live='buscar' ></x-input>
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-b dark:border-white">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b dark:border-white">        
+                    <tr class="border-b dark:border-white">
+                        <th scope="col" class="px-6 py-3 ">
                             ID
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                     @foreach ($categories as $category)
-                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700" wire:key="{{ $category->id }}">
+                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-white" wire:key="{{ $category->id }}">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{$category -> id}}
                             </th>

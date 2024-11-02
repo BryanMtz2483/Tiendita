@@ -25,6 +25,9 @@ Route::middleware([
     Route::get('/categories', function () {
         return view('categories');
     })->name('categories');
+    Route::get('/products', function () {
+        return view('products');
+    })->name('products');
    // Route::get('/dashboard', CreateCategory::class)->name('dashboard');
 });
 
